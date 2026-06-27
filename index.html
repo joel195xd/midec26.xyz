@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Midec26 — Inicio</title>
+  <title>Midec26</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Oswald:wght@700;900&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
@@ -12,75 +12,10 @@
     .font-body-fallback { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
     .font-cursive-fallback { font-family: 'Dancing Script', ui-sans-serif, system-ui, sans-serif; }
   </style>
+  <meta name="description" content="Música, arte y expresión desde el corazón. Bienvenido a mi mundo." />
 </head>
-<body class="font-body-fallback">
-
-  <main>
-
-    <section class="relative bg-sky-canvas min-h-screen flex items-center overflow-hidden">
-      <div class="absolute inset-0 opacity-[0.07]">
-        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-cloud-white blur-[120px]"></div>
-        <div class="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-action-blue blur-[100px]"></div>
-      </div>
-      <div class="relative z-10 max-w-7xl mx-auto px-6 w-full py-32">
-        <p class="font-cursive-fallback text-cloud-white/70 text-heading-sm mb-4">
-          Esto es solo el comienzo
-        </p>
-        <h1 class="font-display-fallback text-cloud-white text-display leading-display font-black tracking-tighter">
-          MIDEC26
-        </h1>
-        <p class="font-body-fallback text-cloud-white/80 text-heading-sm leading-heading-sm max-w-xl mt-8 mb-10">
-          Música, arte y expresión desde el corazón. Bienvenido a mi mundo.
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <a href="/musica.html" class="btn-ghost inline-flex items-center gap-2 px-8 py-3 text-cloud-white border-cloud-white hover:bg-cloud-white hover:text-charcoal-text">
-            Escuchar ahora
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 3l14 9-14 9V3z"/></svg>
-          </a>
-          <a href="/bio.html" class="btn-ghost inline-flex items-center gap-2 px-8 py-3 text-cloud-white/80 border-cloud-white/50 hover:bg-cloud-white hover:text-charcoal-text">
-            Conocer más
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-cloud-white py-32">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="card-feature text-center">
-            <div class="w-16 h-16 mx-auto mb-6 rounded-radius-lg bg-action-blue/10 flex items-center justify-center">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-action-blue)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 8l6 4-6 4V8z"/></svg>
-            </div>
-            <h3 class="font-display-fallback text-heading-sm font-black text-midnight-ink mb-3">Música</h3>
-            <p class="font-body-fallback text-body text-charcoal-text leading-body">
-              Ritmos que conectan, letras que transforman. Explora mi discografía.
-            </p>
-          </div>
-          <div class="card-feature text-center">
-            <div class="w-16 h-16 mx-auto mb-6 rounded-radius-lg bg-action-blue/10 flex items-center justify-center">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-action-blue)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-            </div>
-            <h3 class="font-display-fallback text-heading-sm font-black text-midnight-ink mb-3">Visual</h3>
-            <p class="font-body-fallback text-body text-charcoal-text leading-body">
-              Cada canción tiene su propia historia visual. Descubre la galería.
-            </p>
-          </div>
-          <div class="card-feature text-center">
-            <div class="w-16 h-16 mx-auto mb-6 rounded-radius-lg bg-action-blue/10 flex items-center justify-center">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-action-blue)" stroke-width="2"><path d="M3 3v18h18"/><path d="M19 9l-5 5-4-4-3 3"/></svg>
-            </div>
-            <h3 class="font-display-fallback text-heading-sm font-black text-midnight-ink mb-3">Gira</h3>
-            <p class="font-body-fallback text-body text-charcoal-text leading-body">
-              Próximamente fechas en vivo. No te pierdas el tour.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <script type="module" src="/src/main.js"></script>
-
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
