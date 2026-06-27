@@ -113,6 +113,30 @@
     border-color: var(--color-action-blue);
   }
 
+  .btn-primary {
+    display: inline-block;
+    background-color: var(--color-action-blue);
+    color: var(--color-cloud-white);
+    border-radius: var(--radius-buttons);
+    padding: 10px 20px;
+    font-family: var(--font-control);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .btn-primary:hover {
+    background-color: color-mix(in srgb, var(--color-action-blue) 80%, black);
+  }
+
+  .card {
+    background-color: var(--color-haze-grey);
+    border-radius: var(--radius-cards);
+  }
+
   .frosted {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);

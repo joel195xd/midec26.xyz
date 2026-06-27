@@ -11,7 +11,12 @@
   --font-control: 'Control', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-control-compressed: 'Control Compressed', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-control-cursive: 'Control Cursive', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-control-tnt: 'Control TNT', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-control-tnt: 'Control TNT', 'Space Mono', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Font aliases (match page usage) */
+  --font-display: 'Control Compressed', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Control', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-cursive: 'Control Cursive', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Typography — Scale */
   --text-caption: 12px;
@@ -46,4 +51,12 @@
   --radius-lg: 8px;
   --radius-lg-2: 11px;
   --radius-xl: 14px;
+  --radius-cards: 14px;
+  --radius-links: 8px;
+  --radius-images: 11px;
+  --radius-inputs: 4px;
+  --radius-buttons: 8px;
+
+  /* Layout */
+  --card-padding: 20px;
 }
