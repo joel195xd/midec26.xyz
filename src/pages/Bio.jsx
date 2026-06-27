@@ -4,8 +4,8 @@ export default function Bio() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="relative">
-            <div className="aspect-[3/4] rounded-3xl bg-sky-canvas/10 flex items-center justify-center">
-              <svg className="w-32 h-32 text-sky-canvas/30" fill="currentColor" viewBox="0 0 24 24">
+            <div className="aspect-[3/4] rounded-3xl bg-morning-tint/30 flex items-center justify-center">
+              <svg className="w-32 h-32 text-morning-tint" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
               </svg>
             </div>

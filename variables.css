@@ -1,19 +1,35 @@
 :root {
-  /* Colors */
-  --color-sky-canvas: #426188;
-  --color-action-blue: #2b7fff;
-  --color-midnight-ink: #000000;
-  --color-cloud-white: #ffffff;
-  --color-charcoal-text: #1b1b1b;
-  --color-haze-grey: #f5f5f5;
+  /* New Geniestudio Colors */
+  --color-sky-wash: #ebf5ff;
+  --color-paper-white: #fafdff;
+  --color-midnight-ink: #0a0d12;
+  --color-pressed-charcoal: #181d27;
+  --color-stone: #535862;
+  --color-fog: #93979f;
+  --color-cornflower: #4fbeff;
+  --color-tangerine: #f26110;
+  --color-amethyst: #9552e0;
+  --color-mustard: #bb9915;
+  --color-signal-blue: #0099ff;
+  --color-deep-cobalt: #0069e0;
+  --color-morning-tint: #cce7ff;
+  --color-lilac-mist: #f1e6ff;
+  --color-sprout: #d3f6e3;
 
-  /* Typography — Font Families */
-  --font-control: 'Control', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-control-compressed: 'Control Compressed', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-control-cursive: 'Control Cursive', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-control-tnt: 'Control TNT', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Backward compat old names */
+  --color-sky-canvas: #ebf5ff;
+  --color-action-blue: #0099ff;
+  --color-cloud-white: #fafdff;
+  --color-charcoal-text: #181d27;
+  --color-haze-grey: #cce7ff;
 
-  /* Typography — Scale */
+  /* Typography - Font Families */
+  --font-control: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-control-compressed: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-control-cursive: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-control-tnt: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Typography - Scale */
   --text-caption: 12px;
   --leading-caption: 1.5;
   --text-body: 14px;
@@ -27,7 +43,7 @@
   --text-display: 259px;
   --leading-display: 0.85;
 
-  /* Typography — Weights */
+  /* Typography - Weights */
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-black: 900;
@@ -49,24 +65,20 @@
 
   /* Layout */
   --section-gap: 48px;
-  --card-padding: 20px;
+  --card-padding: 24px;
   --element-gap: 8px;
 
-  /* Border Radius */
-  --radius-md: 4px;
-  --radius-lg: 8px;
-  --radius-lg-2: 11px;
-  --radius-xl: 14px;
-
   /* Named Radii */
-  --radius-cards: 14px;
-  --radius-links: 8px;
-  --radius-images: 11px;
-  --radius-inputs: 4px;
-  --radius-buttons: 8px;
+  --radius-cards: 32px;
+  --radius-icons: 16px;
+  --radius-images: 16px;
+  --radius-buttons: 32px;
+  --radius-cards-inner: 8px;
+  --radius-pills: 9999px;
+  --radius-inputs: 12px;
 
-  /* Surfaces */
-  --surface-sky-canvas: #426188;
-  --surface-haze-grey: #f5f5f5;
-  --surface-cloud-white: #ffffff;
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(0, 51, 102, 0.08);
+  --shadow-button: 0 2px 8px rgba(0, 153, 255, 0.25);
+  --shadow-nav: 0 1px 4px rgba(0, 0, 0, 0.06);
 }

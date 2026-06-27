@@ -4,7 +4,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-cloud-white border-t border-black/10">
+    <footer className="bg-cloud-white border-t border-fog/30">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
@@ -34,7 +34,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-black/10 mt-12 pt-8 text-center">
+        <div className="border-t border-fog/30 mt-12 pt-8 text-center">
           <p className="text-caption text-charcoal-text/60">&copy; {year} Midec26. Todos los derechos reservados.</p>
         </div>
       </div>

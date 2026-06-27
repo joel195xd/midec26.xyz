@@ -8,13 +8,13 @@
 
   body {
     font-family: var(--font-control);
-    color: var(--color-charcoal-text);
-    background-color: var(--color-sky-canvas);
+    color: var(--color-pressed-charcoal);
+    background-color: var(--color-sky-wash);
   }
 
   ::selection {
-    background-color: var(--color-action-blue);
-    color: var(--color-cloud-white);
+    background-color: var(--color-signal-blue);
+    color: var(--color-paper-white);
   }
 }
 
@@ -23,20 +23,20 @@
     font-family: var(--font-control);
     font-weight: 500;
     font-size: 14px;
-    color: var(--color-charcoal-text);
+    color: var(--color-pressed-charcoal);
     transition: color 0.2s;
   }
   .nav-link:hover {
-    color: var(--color-action-blue);
+    color: var(--color-signal-blue);
   }
   .nav-link.active {
-    color: var(--color-action-blue);
+    color: var(--color-signal-blue);
   }
 
   .btn-ghost {
     background: transparent;
-    border: 1px solid var(--color-cloud-white);
-    color: var(--color-cloud-white);
+    border: 1px solid var(--color-paper-white);
+    color: var(--color-paper-white);
     border-radius: var(--radius-lg);
     padding: 0 8px;
     font-family: var(--font-control);
@@ -45,14 +45,14 @@
     transition: background-color 0.2s, color 0.2s;
   }
   .btn-ghost:hover {
-    background-color: var(--color-cloud-white);
-    color: var(--color-charcoal-text);
+    background-color: var(--color-paper-white);
+    color: var(--color-pressed-charcoal);
   }
 
   .btn-ghost-dark {
     background: transparent;
-    border: 1px solid var(--color-charcoal-text);
-    color: var(--color-charcoal-text);
+    border: 1px solid var(--color-pressed-charcoal);
+    color: var(--color-pressed-charcoal);
     border-radius: var(--radius-lg);
     padding: 0 8px;
     font-family: var(--font-control);
@@ -61,24 +61,25 @@
     transition: background-color 0.2s, color 0.2s;
   }
   .btn-ghost-dark:hover {
-    background-color: var(--color-charcoal-text);
-    color: var(--color-cloud-white);
+    background-color: var(--color-pressed-charcoal);
+    color: var(--color-paper-white);
   }
 
   .btn-outline {
     background: transparent;
-    border: 1px solid var(--color-action-blue);
-    color: var(--color-action-blue);
+    border: 1px solid var(--color-signal-blue);
+    color: var(--color-signal-blue);
     border-radius: var(--radius-buttons);
     padding: 10px 20px;
     font-family: var(--font-control);
     font-weight: 500;
     font-size: 16px;
     transition: background-color 0.2s, color 0.2s;
+    box-shadow: var(--shadow-button);
   }
   .btn-outline:hover {
-    background-color: var(--color-action-blue);
-    color: var(--color-cloud-white);
+    background-color: var(--color-signal-blue);
+    color: var(--color-paper-white);
   }
 
   .section-gap {
@@ -86,9 +87,10 @@
   }
 
   .card-feature {
-    background-color: var(--color-haze-grey);
+    background-color: var(--color-paper-white);
     padding: var(--card-padding);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-cards);
+    box-shadow: var(--shadow-card);
   }
 
   .card-image {
@@ -97,11 +99,11 @@
   }
 
   .input-field {
-    background-color: var(--color-haze-grey);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--color-paper-white);
+    border: 1px solid var(--color-fog);
     border-radius: var(--radius-inputs);
     padding: 10px;
-    color: var(--color-charcoal-text);
+    color: var(--color-pressed-charcoal);
     font-family: var(--font-control);
     font-weight: 500;
     font-size: 14px;
@@ -110,13 +112,13 @@
     transition: border-color 0.2s;
   }
   .input-field:focus {
-    border-color: var(--color-action-blue);
+    border-color: var(--color-signal-blue);
   }
 
   .btn-primary {
     display: inline-block;
-    background-color: var(--color-action-blue);
-    color: var(--color-cloud-white);
+    background-color: var(--color-signal-blue);
+    color: var(--color-paper-white);
     border-radius: var(--radius-buttons);
     padding: 10px 20px;
     font-family: var(--font-control);
@@ -127,14 +129,16 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.2s;
+    box-shadow: var(--shadow-button);
   }
   .btn-primary:hover {
-    background-color: color-mix(in srgb, var(--color-action-blue) 80%, black);
+    background-color: var(--color-deep-cobalt);
   }
 
   .card {
-    background-color: var(--color-haze-grey);
+    background-color: var(--color-paper-white);
     border-radius: var(--radius-cards);
+    box-shadow: var(--shadow-card);
   }
 
   .frosted {

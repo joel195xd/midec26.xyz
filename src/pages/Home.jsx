@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 export default function Home() {
   return (
     <>
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-sky-canvas/10 to-cloud-white">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-morning-tint/50 to-paper-white">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 left-10 w-72 h-72 bg-action-blue/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-sky-canvas/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-morning-tint/40 rounded-full blur-3xl"></div>
         </div>
         <div className="relative z-10 text-center px-6 max-w-4xl">
           <p className="font-cursive text-3xl md:text-4xl text-action-blue mb-4">Bienvenido a mi mundo</p>

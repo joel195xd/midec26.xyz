@@ -22,7 +22,7 @@ export default function Contacto() {
                 <input
                   type="text"
                   id="name"
-                  className="w-full px-4 py-3 rounded-xl border border-black/10 bg-white focus:outline-none focus:ring-2 focus:ring-action-blue/50 focus:border-action-blue transition-all text-body text-charcoal-text"
+                  className="w-full px-4 py-3 rounded-xl border border-fog/30 bg-paper-white focus:outline-none focus:ring-2 focus:ring-action-blue/50 focus:border-action-blue transition-all text-body text-charcoal-text"
                   placeholder="Tu nombre"
                 />
               </div>
@@ -33,7 +33,7 @@ export default function Contacto() {
                 <input
                   type="email"
                   id="email"
-                  className="w-full px-4 py-3 rounded-xl border border-black/10 bg-white focus:outline-none focus:ring-2 focus:ring-action-blue/50 focus:border-action-blue transition-all text-body text-charcoal-text"
+                  className="w-full px-4 py-3 rounded-xl border border-fog/30 bg-paper-white focus:outline-none focus:ring-2 focus:ring-action-blue/50 focus:border-action-blue transition-all text-body text-charcoal-text"
                   placeholder="tu@email.com"
                 />
               </div>
@@ -44,7 +44,7 @@ export default function Contacto() {
                 <textarea
                   id="message"
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl border border-black/10 bg-white focus:outline-none focus:ring-2 focus:ring-action-blue/50 focus:border-action-blue transition-all text-body text-charcoal-text resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-fog/30 bg-paper-white focus:outline-none focus:ring-2 focus:ring-action-blue/50 focus:border-action-blue transition-all text-body text-charcoal-text resize-none"
                   placeholder="Escribe tu mensaje..."
                 ></textarea>
               </div>
