@@ -6,17 +6,17 @@ export const SITE = {
 } as const;
 
 export const SOCIALS = {
-  spotify: "https://open.spotify.com/",
-  youtube: "https://youtube.com/",
-  tiktok: "https://tiktok.com/@midec26",
-  instagram: "https://instagram.com/midec26",
+  spotify: "https://open.spotify.com/embed/artist/62PCBFxD6IB7B3DcVheIJp?utm_source=generator&theme=0&si=2730f589d5cb4ecb",
+  youtube: "https://www.youtube.com/@MarkhoES",
+  tiktok: "https://www.tiktok.com/@markh0__",
+  instagram: "https://www.instagram.com/rial_markho?igsh=OWdiY3I1bXJ4em56",
   twitter: "https://x.com/midec26",
 } as const;
 
 export const NAV_LINKS = [
-  { label: "Música", href: "#musica" },
-  { label: "Merch", href: "#merch" },
-  { label: "Sobre Midec26", href: "#sobre" },
+  { label: "Música", href: "/musica" },
+  { label: "Merch", href: "/merch" },
+  { label: "Sobre Midec26", href: "/sobre" },
 ] as const;
 
 export const TRACKS = [
@@ -47,21 +47,21 @@ export const MERCH_ITEMS = [
   {
     name: "Playera Midec26",
     price: "$399 MXN",
-    image: null,
+    image: "/playera.png",
   },
   {
     name: "Gorra Logo",
     price: "$299 MXN",
-    image: null,
+    image: "/gorra.png",
   },
   {
     name: "Poster Edición Limitada",
     price: "$199 MXN",
-    image: null,
+    image: "/poster.png",
   },
   {
     name: "Hoodie Exclusive",
     price: "$699 MXN",
-    image: null,
+    image: "/hoodie.png",
   },
 ] as const;

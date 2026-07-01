@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { SITE, NAV_LINKS } from "@/lib/constants";
 
 export default function Navbar() {
@@ -22,19 +23,19 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="text-2xl font-bold tracking-tighter text-foreground">
+        <Link href="/" className="text-2xl font-bold tracking-tighter text-foreground">
           {SITE.name}
-        </a>
+        </Link>
 
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm text-text-secondary hover:text-accent transition-colors duration-200"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -64,14 +65,14 @@ export default function Navbar() {
         <div className="md:hidden bg-surface/95 backdrop-blur-xl border-t border-white/5">
           <div className="px-6 py-4 flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className="text-text-secondary hover:text-accent transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

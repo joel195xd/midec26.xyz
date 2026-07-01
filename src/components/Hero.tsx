@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { SOCIALS } from "@/lib/constants";
 
 export default function Hero() {
@@ -31,12 +32,12 @@ export default function Hero() {
 
         <div className="animate-fade-in-up animate-delay-400" style={{ opacity: 0 }}>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="#musica"
+            <Link
+              href="/musica"
               className="px-8 py-3 bg-accent text-background font-bold rounded-full hover:bg-accent-dark transition-colors duration-200 animate-pulse-glow"
             >
               Escuchar ahora
-            </a>
+            </Link>
             <a
               href={SOCIALS.instagram}
               target="_blank"
@@ -47,21 +48,6 @@ export default function Hero() {
             </a>
           </div>
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          className="text-text-secondary"
-        >
-          <path d="M12 5v14M19 12l-7 7-7-7" />
-        </svg>
       </div>
     </section>
   );
