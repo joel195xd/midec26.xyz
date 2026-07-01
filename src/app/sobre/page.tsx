@@ -5,120 +5,223 @@ import { SOCIALS } from "@/lib/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sobre Midec26 — Artista & Cantante",
-  description: "Conoce a Midec26, artista y cantante. Escucha su música en Spotify y síguelo en redes sociales.",
+  title: "Sobre MARKHO — Artista & Cantante",
+  description: "Conoce la historia del artista catalán MARKHO, su evolución desde MIDEC26, su trayectoria desde 2023 y sus lanzamientos oficiales.",
 };
+
+const TIMELINE_EVENTS = [
+  {
+    year: "2008",
+    title: "Origen en Santpedor",
+    description: "Nace en Santpedor, Cataluña. Su afinidad innata y pasión por las estructuras musicales empiezan a moldear su camino.",
+  },
+  {
+    year: "2023",
+    title: "El Debut: 'Magia'",
+    description: "Publica su primer tema oficial 'Magia' como MIDEC26, marcando el inicio formal de su catálogo musical.",
+  },
+  {
+    year: "Transición",
+    title: "Evolución Creativa",
+    description: "Decide archivar sus trabajos previos para buscar un renacimiento creativo libre de ataduras y de mayor madurez.",
+  },
+  {
+    year: "Presente",
+    title: "La Era MARKHO",
+    description: "Nace su identidad definitiva. Enfocado en el sonido urbano premium, producciones detalladas y letras auténticas.",
+  },
+];
 
 export default function SobrePage() {
   return (
-    <main className="pt-24 pb-20">
+    <main className="relative min-h-screen bg-background pt-32 pb-24 overflow-hidden select-none">
+      
+      {/* 6. Ambient Background Motion & 18. Animated Gradient Effects */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Shifting Gradient Blurs */}
+        <div className="absolute top-10 left-[10%] w-[40vw] h-[40vw] bg-red-600/10 rounded-full blur-[120px] animate-[pulse_6s_ease-in-out_infinite]" />
+        <div className="absolute bottom-20 right-[5%] w-[45vw] h-[45vw] bg-cyan-500/5 rounded-full blur-[150px] animate-[pulse_8s_ease-in-out_infinite_1s]" />
+        
+        {/* 7. Thin line work grid aesthetic */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ef444405_1px,transparent_1px),linear-gradient(to_bottom,#ef444405_1px,transparent_1px)] bg-[size:30px_30px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)]" />
+      </div>
+
       <Section id="sobre">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Bio */}
-          <ScrollReveal>
-            <div>
-              <h1 className="text-5xl sm:text-6xl font-black tracking-tight text-foreground mb-4">
-                De Midec26 a MARKHO
-              </h1>
-              <div className="w-16 h-1 bg-red-600 rounded-full mb-8 shadow-[0_0_10px_rgba(220,38,38,0.5)]" />
-
-              <div className="space-y-4 text-text-secondary leading-relaxed text-sm sm:text-base">
-                <p>
-                  Nacido en Santpedor (Cataluña) en 2008, la vida de este artista siempre estuvo guiada por una profunda afinidad y pasión por la música. Su andadura musical comenzó a tomar forma oficial en 2023, con el lanzamiento de su primer sencillo titulado <strong className="text-foreground">"Magia"</strong> bajo el nombre de <strong className="text-foreground">Midec26</strong>.
-                </p>
-                <p>
-                  Tras la gran acogida de su debut, Midec26 se sumergió por completo en la composición, publicando numerosos temas y álbumes que le sirvieron para experimentar, pulir su sonido y consolidar su técnica. Sin embargo, en la búsqueda constante de la madurez y la evolución sonora, tomó la audaz decisión de archivar esa etapa inicial.
-                </p>
-                <p>
-                  Ocultando sus primeros trabajos para dar paso a una era completamente renovada, nació su identidad actual: <strong className="text-red-500 font-bold">MARKHO</strong>. En esta nueva etapa, el artista se presenta con una propuesta mucho más sólida, madura y profesional, caracterizada por canciones sumamente cuidadas, líricas maduras y una producción sonora de máxima calidad.
-                </p>
+        <div className="relative z-10">
+          
+          {/* 4. Expressive Typography Title with Kinetic Accent */}
+          <div className="mb-20 text-center lg:text-left">
+            <ScrollReveal>
+              <div className="flex flex-col gap-2">
+                <span className="text-xs font-black tracking-[0.4em] text-red-500 uppercase">
+                  Biografía & Evolución
+                </span>
+                <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter text-foreground leading-none flex flex-wrap items-center justify-center lg:justify-start gap-x-4">
+                  <span className="bg-gradient-to-r from-neutral-600 via-neutral-500 to-transparent bg-clip-text text-transparent">
+                    MIDEC26
+                  </span>
+                  <span className="text-red-600 font-extrabold relative inline-block animate-[pulse_4s_ease-in-out_infinite]">
+                    MARKHO
+                    <span className="absolute -bottom-2 left-0 right-0 h-1.5 bg-gradient-to-r from-red-600 to-transparent rounded-full" />
+                  </span>
+                </h1>
               </div>
+            </ScrollReveal>
+          </div>
 
-              <div className="mt-8 flex flex-wrap gap-4">
+          {/* Main Grid: Glassmorphic Bio and MöET Video Card */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch mb-32">
+            
+            {/* Bio Box: 28. Glassmorphic Animation Effect with premium borders */}
+            <div className="lg:col-span-7 bg-surface/20 border border-white/5 rounded-3xl p-8 sm:p-10 flex flex-col justify-between shadow-2xl relative group overflow-hidden hover:border-white/10 transition-colors duration-500">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.01] to-transparent pointer-events-none" />
+              
+              <ScrollReveal>
+                <div className="space-y-6 text-text-secondary text-base sm:text-lg leading-relaxed">
+                  <p>
+                    Nacido en <span className="text-foreground font-semibold border-b border-red-500/20 pb-0.5">Santpedor (Cataluña) en 2008</span>, la vida de este artista siempre estuvo ligada a una innegable pasión por la música. Su trayectoria empezó a definirse en <span className="text-foreground font-semibold">2023</span> con su primer tema oficial <strong className="text-foreground">"Magia"</strong> como <strong className="text-foreground">Midec26</strong>.
+                  </p>
+                  <p>
+                    Bajo esa firma inicial lanzó varios singles y álbumes para experimentar y forjar su estilo. Pero la madurez artística exige transformaciones. En su búsqueda de un sonido propio y profesional, decidió archivar su catálogo original.
+                  </p>
+                  <p>
+                    Ocultando esa primera etapa para renacer sin ataduras, surge <strong className="text-red-500 font-black">MARKHO</strong>. En este nuevo capítulo enfocado en la excelencia de producción, calidad de lírica y autenticidad del género urbano, escribe su presente.
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              <div className="mt-12 flex flex-wrap gap-4 relative z-10">
                 <a
                   href={SOCIALS.spotify}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 bg-[#1DB954] text-black font-bold rounded-full hover:bg-[#1ed760] transition-colors text-sm"
+                  className="flex items-center gap-2 px-6 py-3.5 bg-[#1DB954] hover:bg-[#1ed760] text-black font-extrabold rounded-full transition-all hover:scale-105 shadow-[0_5px_15px_rgba(29,185,84,0.2)] text-xs uppercase tracking-wider"
                 >
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
-                  </svg>
                   Spotify
                 </a>
                 <a
                   href={SOCIALS.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 transition-colors text-sm"
+                  className="flex items-center gap-2 px-6 py-3.5 bg-red-600 hover:bg-red-700 text-white font-extrabold rounded-full transition-all hover:scale-105 shadow-[0_5px_15px_rgba(220,38,38,0.2)] text-xs uppercase tracking-wider"
                 >
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                  </svg>
                   YouTube
                 </a>
                 <a
                   href={SOCIALS.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 border border-white/10 bg-white/5 text-foreground font-bold rounded-full hover:border-red-600 hover:text-red-500 transition-all text-sm"
+                  className="flex items-center gap-2 px-6 py-3.5 border border-white/10 bg-white/5 hover:border-red-600 hover:text-red-500 rounded-full transition-all hover:scale-105 text-xs uppercase tracking-wider"
                 >
                   Instagram
                 </a>
               </div>
             </div>
-          </ScrollReveal>
 
-          {/* Featured Collaboration Card */}
-          <ScrollReveal direction="right" delay={0.15}>
-            <div className="flex justify-center w-full">
-              <div className="w-full max-w-lg bg-surface rounded-3xl border border-white/5 p-6 sm:p-8 flex flex-col gap-6 shadow-2xl relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-red-600/10 rounded-full blur-[80px] pointer-events-none" />
-                
-                <div>
-                  <span className="text-xs font-bold tracking-[0.2em] text-red-500 uppercase">
-                    Colaboración Destacada
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-foreground mt-1">
-                    MöET <span className="text-text-secondary text-lg font-medium">ft. El Capi</span>
-                  </h3>
-                </div>
+            {/* MöET Video: Glassmorphism Card with Shifting Glow Border */}
+            <div className="lg:col-span-5 bg-surface/30 backdrop-blur-md rounded-3xl border border-white/5 p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-red-600/30 transition-all duration-500">
+              {/* Shifting radial glow on hover */}
+              <div className="absolute inset-0 bg-radial-gradient opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none" style={{ background: "radial-gradient(circle at 100% 0%, var(--color-accent), transparent 60%)" }} />
+              
+              <ScrollReveal direction="right" delay={0.1}>
+                <div className="flex flex-col gap-6">
+                  <div>
+                    <span className="text-[10px] font-black tracking-[0.3em] text-red-500 uppercase block mb-1">
+                      Colaboración Destacada
+                    </span>
+                    <h3 className="text-3xl font-black text-foreground">
+                      MöET <span className="text-text-secondary text-lg font-light block sm:inline sm:ml-1">ft. El Capi</span>
+                    </h3>
+                  </div>
 
-                {/* Responsive YouTube Embed */}
-                <div className="relative aspect-video w-full rounded-2xl overflow-hidden border border-white/10 bg-black shadow-lg">
-                  <iframe
-                    src="https://www.youtube.com/embed/PKRYA2fHRZ8"
-                    title="MARKHO ft. El Capi - MöET"
-                    className="absolute inset-0 w-full h-full border-0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
+                  {/* 22. Page Transition / Zoom Effect on Video Container */}
+                  <div className="relative aspect-video w-full rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]">
+                    <iframe
+                      src="https://www.youtube.com/embed/PKRYA2fHRZ8"
+                      title="MARKHO ft. El Capi - MöET"
+                      className="absolute inset-0 w-full h-full border-0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  </div>
                 </div>
+              </ScrollReveal>
 
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <a
-                    href="https://www.youtube.com/watch?v=PKRYA2fHRZ8"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 text-center py-3 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition-colors text-sm"
-                  >
-                    Ver en YouTube
-                  </a>
-                  <a
-                    href="https://www.youtube.com/@ElCapi-ds"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 text-center py-3 bg-white/5 border border-white/10 text-foreground font-semibold rounded-xl hover:bg-white/10 transition-colors text-sm"
-                  >
-                    Canal de El Capi
-                  </a>
-                </div>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3 relative z-10">
+                <a
+                  href="https://www.youtube.com/watch?v=PKRYA2fHRZ8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 text-center py-3 bg-red-600 hover:bg-red-700 text-white font-extrabold rounded-xl transition-all hover:scale-[1.02] text-xs uppercase tracking-wider shadow-[0_4px_12px_rgba(220,38,38,0.2)]"
+                >
+                  Ver Video
+                </a>
+                <a
+                  href="https://www.youtube.com/@ElCapi-ds"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 text-center py-3 bg-white/5 border border-white/10 text-foreground hover:bg-white/10 hover:border-red-600/30 transition-colors text-xs font-bold uppercase tracking-wider rounded-xl"
+                >
+                  El Capi
+                </a>
               </div>
             </div>
-          </ScrollReveal>
-        </div>
 
-        <AdBanner slot="0000000000" />
+          </div>
+
+          {/* 7. Line Animation / 8. Self-Drawing Style Timeline */}
+          <div className="border-t border-white/5 pt-20 relative z-10">
+            <div className="text-center mb-20">
+              <span className="text-xs font-black tracking-[0.4em] text-red-500 uppercase">
+                Trayectoria
+              </span>
+              <h2 className="text-4xl sm:text-5xl font-black text-foreground mt-2 tracking-tight">
+                LÍNEA DE TIEMPO
+              </h2>
+            </div>
+
+            {/* Timeline Row */}
+            <div className="relative">
+              {/* 8. Self-Drawing connecting line decoration */}
+              <div className="absolute top-[35px] left-8 right-8 h-[2px] bg-gradient-to-r from-red-600/10 via-red-600/40 to-cyan-500/10 hidden lg:block" />
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {TIMELINE_EVENTS.map((event, index) => (
+                  <ScrollReveal key={event.year} delay={index * 0.15}>
+                    <div className="bg-surface/10 border border-white/5 rounded-2xl p-6 relative overflow-hidden group hover:border-red-600/30 transition-all duration-500 hover:-translate-y-2">
+                      {/* Accent color strip */}
+                      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-red-600/50 to-transparent" />
+                      
+                      {/* Big background watermark */}
+                      <div className="absolute -right-2 -top-6 text-7xl font-black text-white/[0.02] select-none pointer-events-none group-hover:text-red-600/[0.03] transition-colors">
+                        0{index + 1}
+                      </div>
+
+                      {/* Dot connector representation */}
+                      <div className="w-8 h-8 rounded-full bg-surface border border-red-600/30 flex items-center justify-center mb-6 relative z-10 group-hover:border-red-600 transition-all shadow-[0_0_10px_rgba(220,38,38,0.1)]">
+                        <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse" />
+                      </div>
+
+                      <span className="inline-block px-3 py-1 rounded-full bg-red-600/10 border border-red-600/20 text-red-500 text-xs font-black tracking-widest mb-4 uppercase">
+                        {event.year}
+                      </span>
+                      
+                      <h3 className="text-xl font-bold text-foreground mb-3 tracking-tight">
+                        {event.title}
+                      </h3>
+                      
+                      <p className="text-text-secondary text-sm leading-relaxed">
+                        {event.description}
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <AdBanner slot="0000000000" />
+        </div>
       </Section>
     </main>
   );
