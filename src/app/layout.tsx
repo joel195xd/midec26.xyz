@@ -5,6 +5,7 @@ import { SITE } from "@/lib/constants";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
+import CookieConsent from "@/components/CookieConsent";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -54,6 +55,7 @@ export default function RootLayout({
           {children}
         </Providers>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

@@ -14,9 +14,10 @@ export const SOCIALS = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: "Música", href: "/musica" },
-  { label: "Merch", href: "/merch" },
-  { label: "Sobre Midec26", href: "/sobre" },
+  { label: "Música", href: "/musica", icon: "music" },
+  { label: "Merch", href: "/merch", icon: "shoppingBag" },
+  { label: "Sobre Markho", href: "/sobre", icon: "user" },
+  { label: "MarkKart", href: "/juego", icon: "gamepad2" },
 ] as const;
 
 export const TRACKS = [
@@ -54,11 +55,11 @@ export const MERCH_ITEMS = [
     price: "$299 MXN",
     image: "/gorra.png",
   },
-  {
-    name: "Poster Edición Limitada",
-    price: "$199 MXN",
-    image: "/poster.png",
-  },
+  // {
+  //   name: "Poster Edición Limitada",
+  //   price: "$199 MXN",
+  //   image: "/poster.png",
+  // },
   {
     name: "Hoodie Exclusive",
     price: "$699 MXN",

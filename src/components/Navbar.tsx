@@ -4,6 +4,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/constants";
+import { Music, ShoppingBag, User, Gamepad2 } from "lucide-react";
+
+const ICON_MAP: Record<string, React.ElementType> = {
+  music: Music,
+  shoppingBag: ShoppingBag,
+  user: User,
+  gamepad2: Gamepad2,
+};
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,16 +70,18 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-1 bg-white/5 p-1.5 rounded-full border border-white/5 backdrop-blur-md">
           {NAV_LINKS.map((link) => {
             const isActive = pathname === link.href;
+            const Icon = ICON_MAP[link.icon as keyof typeof ICON_MAP];
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-5 py-2 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 ${
+                className={`relative flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 ${
                   isActive
                     ? "text-background bg-accent font-bold shadow-[0_4px_12px_rgba(163,230,53,0.3)]"
                     : "text-text-secondary hover:text-foreground hover:bg-white/5"
                 }`}
               >
+                {Icon && <Icon size={16} className={isActive ? "text-background" : "text-text-secondary"} />}
                 {link.label}
               </Link>
             );
@@ -125,17 +135,19 @@ export default function Navbar() {
         <div className="px-6 py-6 flex flex-col gap-3">
           {NAV_LINKS.map((link) => {
             const isActive = pathname === link.href;
+            const Icon = ICON_MAP[link.icon as keyof typeof ICON_MAP];
             return (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`px-4 py-3 rounded-xl text-base font-semibold tracking-wide transition-all ${
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold tracking-wide transition-all ${
                   isActive
                     ? "bg-accent text-background font-bold"
                     : "text-text-secondary hover:text-foreground hover:bg-white/5"
                 }`}
               >
+                {Icon && <Icon size={20} className={isActive ? "text-background" : "text-text-secondary"} />}
                 {link.label}
               </Link>
             );

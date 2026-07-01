@@ -61,7 +61,7 @@ export default function Hero() {
                 Escuchar ahora
               </Link>
               <a
-                href={SOCIALS.instagram}
+                href={SOCIALS.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-4 border border-white/10 bg-white/5 text-foreground rounded-full hover:border-accent hover:text-accent hover:bg-accent/5 transition-all duration-300 hover:scale-105 text-center"
