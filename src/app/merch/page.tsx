@@ -1,5 +1,6 @@
 import Section from "@/components/Section";
 import AdBanner from "@/components/AdBanner";
+import ScrollReveal from "@/components/ScrollReveal";
 import { MERCH_ITEMS } from "@/lib/constants";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -13,16 +14,19 @@ export default function MerchPage() {
   return (
     <main className="pt-24 pb-20">
       <Section id="merch">
-        <div className="mb-12">
-          <h1 className="text-5xl sm:text-6xl font-black tracking-tight text-foreground mb-4">
-            Merch
-          </h1>
-          <div className="w-16 h-1 bg-accent rounded-full" />
-          <p className="text-text-secondary mt-4">Ediciones exclusivas. Próximamente disponible.</p>
-        </div>
+        <ScrollReveal>
+          <div className="mb-12">
+            <h1 className="text-5xl sm:text-6xl font-black tracking-tight text-foreground mb-4">
+              Merch
+            </h1>
+            <div className="w-16 h-1 bg-accent rounded-full" />
+            <p className="text-text-secondary mt-4">Ediciones exclusivas. Próximamente disponible.</p>
+          </div>
+        </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {MERCH_ITEMS.map((item) => (
+        <ScrollReveal delay={0.1}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {MERCH_ITEMS.map((item) => (
             <div
               key={item.name}
               className="bg-surface rounded-2xl border border-white/5 overflow-hidden group hover:border-accent/30 transition-all duration-300"
@@ -66,7 +70,8 @@ export default function MerchPage() {
               </div>
             </div>
           ))}
-        </div>
+          </div>
+        </ScrollReveal>
 
         <AdBanner slot="0000000000" />
       </Section>

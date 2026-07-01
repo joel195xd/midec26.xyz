@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/constants";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Providers from "@/components/Providers";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -48,7 +50,10 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <Navbar />
-        {children}
+        <Providers>
+          {children}
+        </Providers>
+        <Footer />
       </body>
     </html>
   );
