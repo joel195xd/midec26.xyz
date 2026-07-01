@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface AdBannerProps {
   slot: string;
@@ -16,8 +16,14 @@ export default function AdBanner({
   className = "",
 }: AdBannerProps) {
   const adRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     try {
       if (adRef.current && typeof window !== "undefined") {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -26,7 +32,9 @@ export default function AdBanner({
     } catch {
       // AdSense not loaded yet
     }
-  }, []);
+  }, [mounted]);
+
+  if (!mounted) return null;
 
   return (
     <div className={`ad-container my-8 flex justify-center ${className}`}>
