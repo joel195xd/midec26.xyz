@@ -63,9 +63,18 @@ export default function Footer() {
             ))}
           </div>
 
-          <p className="text-text-secondary text-sm">
-            &copy; {new Date().getFullYear()} {SITE.name}. Todos los derechos reservados.
-          </p>
+          <div className="flex flex-col items-center gap-2 text-sm text-text-secondary">
+            <a
+              href="/politica-privacidad"
+              className="hover:text-accent transition-colors duration-200"
+            >
+              Política de Privacidad
+            </a>
+            <p>
+              &copy; {new Date().getFullYear()} {SITE.name}. Todos los derechos
+              reservados.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
