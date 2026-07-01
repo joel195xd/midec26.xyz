@@ -36,15 +36,11 @@ export default function Hero() {
           </div>
 
           <div className="animate-fade-in-up animate-delay-200" style={{ opacity: 0 }}>
-            <h1 className="flex flex-col mb-8 select-none">
-              <span className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-foreground leading-none">
-                MIDEC
-                <span className="text-accent relative inline-block ml-1">
-                  26
-                  <span className="absolute -inset-2 bg-accent/20 blur-xl rounded-full -z-10 animate-pulse" />
-                </span>
+            <h1 className="flex flex-wrap items-baseline justify-center lg:justify-start gap-x-4 gap-y-2 mb-8 select-none leading-none">
+              <span className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter bg-gradient-to-r from-neutral-500/80 via-neutral-500/30 to-transparent bg-clip-text text-transparent select-none pr-2">
+                MIDEC26
               </span>
-              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-[0.2em] bg-gradient-to-r from-accent via-emerald-400 to-cyan-400 bg-clip-text text-transparent mt-2 lg:mt-4 text-center lg:text-left leading-none uppercase">
+              <span className="text-7xl sm:text-8xl md:text-9xl font-black tracking-tight text-red-600 drop-shadow-[0_0_25px_rgba(220,38,38,0.45)]">
                 MARKHO
               </span>
             </h1>
