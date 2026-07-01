@@ -31,10 +31,11 @@ export async function getLatestVideos(maxResults = 10): Promise<YouTubeVideo[]> 
   const data = await res.json();
 
   return data.items.map((item: Record<string, unknown>) => {
+    const id = item.id as Record<string, string>;
     const snippet = item.snippet as Record<string, unknown>;
     const thumbnails = snippet.thumbnails as Record<string, Record<string, string>>;
     return {
-      id: item.id as string,
+      id: id.videoId,
       title: snippet.title as string,
       thumbnail: thumbnails.high?.url ?? thumbnails.medium?.url ?? thumbnails.default?.url ?? "",
       publishedAt: snippet.publishedAt as string,
