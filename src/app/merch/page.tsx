@@ -1,4 +1,5 @@
 import Section from "@/components/Section";
+import AdBanner from "@/components/AdBanner";
 import { MERCH_ITEMS } from "@/lib/constants";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -66,6 +67,8 @@ export default function MerchPage() {
             </div>
           ))}
         </div>
+
+        <AdBanner slot="0000000000" />
       </Section>
     </main>
   );

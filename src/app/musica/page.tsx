@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Section from "@/components/Section";
+import AdBanner from "@/components/AdBanner";
 import { TRACKS, SOCIALS } from "@/lib/constants";
 import { getLatestVideos } from "@/lib/youtube";
 import type { Metadata } from "next";
@@ -41,6 +42,8 @@ export default async function MusicaPage() {
             loading="lazy"
           />
         </div>
+
+        <AdBanner slot="0000000000" />
 
         {/* Track List */}
         <div className="mb-16">

@@ -1,4 +1,5 @@
 import Section from "@/components/Section";
+import AdBanner from "@/components/AdBanner";
 import { SOCIALS } from "@/lib/constants";
 import type { Metadata } from "next";
 
@@ -92,6 +93,8 @@ export default function SobrePage() {
             </div>
           </div>
         </div>
+
+        <AdBanner slot="0000000000" />
       </Section>
     </main>
   );
