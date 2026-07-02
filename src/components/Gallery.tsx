@@ -92,7 +92,7 @@ export default function Gallery() {
         {/* Grid pattern overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:24px_24px]" />
 
-        <div className="max-w-7xl mx-auto px-6 w-full h-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pointer-events-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full h-full grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center pointer-events-auto">
           
           {/* Left Side: Sticky Visual Container */}
           <div className="col-span-12 lg:col-span-6 flex justify-center items-center relative h-[40vh] lg:h-[70vh]">
@@ -145,7 +145,7 @@ export default function Gallery() {
       </div>
 
       {/* Scrolling Text Columns overlay */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12">
         
         {/* Left Column spacer on desktop to let visual show */}
         <div className="hidden lg:block lg:col-span-6 pointer-events-none" />

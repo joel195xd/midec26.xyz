@@ -35,7 +35,7 @@ export default function ScrollChapter({
         delay: index * 0.15,
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
-      className="relative pl-16"
+      className="relative pl-10 sm:pl-16"
     >
       {/* Timeline dot */}
       <div className="absolute left-0 top-1 w-3 h-3 rounded-full bg-red-500 border-2 border-red-500/30 shadow-[0_0_12px_rgba(239,68,68,0.5)]" />

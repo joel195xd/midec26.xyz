@@ -135,7 +135,7 @@ export default function SobrePage() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
       <Section id="sobre">
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start">
           {/* LEFT SIDEBAR: Parallax Portrait & Socials */}
           <div className="lg:col-span-5 lg:sticky lg:top-28 flex flex-col items-center">
             <ScrollReveal>
@@ -151,7 +151,7 @@ export default function SobrePage() {
           </div>
 
           {/* RIGHT CONTENT SCROLL: Biography, Collabs & Milestones */}
-          <div className="lg:col-span-7 space-y-20 relative pl-8 border-l border-white/5">
+          <div className="lg:col-span-7 space-y-12 lg:space-y-20 relative pl-6 lg:pl-8 border-l border-white/5">
             {/* Section 1: The Bio Narrative */}
             <ScrollReveal>
               <div className="space-y-6">

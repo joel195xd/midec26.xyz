@@ -12,7 +12,7 @@ export default function PoliticaPrivacidadPage() {
     <main className="pt-24 pb-20">
       <Section id="privacidad">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-5xl sm:text-6xl font-black tracking-tight text-foreground mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-foreground mb-4">
             Política de Privacidad
           </h1>
           <div className="w-16 h-1 bg-accent rounded-full mb-4" />

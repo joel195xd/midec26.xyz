@@ -63,7 +63,7 @@ export default function MerchPage() {
 
                 <button
                   disabled
-                  className="mt-3 w-full py-2 bg-white/5 text-text-secondary rounded-full text-sm font-medium cursor-not-allowed"
+                  className="mt-3 w-full py-3 bg-white/5 text-text-secondary rounded-full text-sm font-medium cursor-not-allowed"
                 >
                   Próximamente
                 </button>
