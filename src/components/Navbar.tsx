@@ -4,12 +4,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/constants";
-import { Music, ShoppingBag, User } from "lucide-react";
+import { Music, ShoppingBag, User, Sparkles } from "lucide-react";
 
 const ICON_MAP: Record<string, React.ElementType> = {
   music: Music,
   shoppingBag: ShoppingBag,
   user: User,
+  sparkles: Sparkles,
 };
 
 export default function Navbar() {

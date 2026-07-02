@@ -6,7 +6,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
 import CookieConsent from "@/components/CookieConsent";
-import ReleaseBanner from "@/components/ReleaseBanner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -51,7 +50,6 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
-        <ReleaseBanner />
         <Navbar />
         <Providers>
           {children}
