@@ -1,13 +1,19 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Globe, ExternalLink, Play, X, Pause, Loader2 } from "lucide-react";
+import { Globe, ExternalLink, Play, X, Pause } from "lucide-react";
 
-interface VideoEntry {
-  file: string;
-  alt: string;
-}
+const VIDEOS = [
+  { id: 1, file: "video-01.mp4", alt: "¿Os mola o no?" },
+  { id: 2, file: "video-02.mp4", alt: "Entre sombras y luces" },
+  { id: 3, file: "video-03.mp4", alt: "Entre sombras y luces - Disponible" },
+  { id: 4, file: "video-04.mp4", alt: "Preview - Feliz año" },
+  { id: 5, file: "video-05.mp4", alt: "Estad atentos en marzo" },
+  { id: 6, file: "video-06.mp4", alt: "Espero que os mole" },
+  { id: 7, file: "video-07.mp4", alt: "¿Os mola o qué?" },
+  { id: 8, file: "video-08.mp4", alt: "Como si nada - Disponible" },
+];
 
 function videoPath(file: string) {
   return `/${file}`;
@@ -18,9 +24,9 @@ function VideoCard({
   index,
   onSelect,
 }: {
-  video: VideoEntry;
+  video: (typeof VIDEOS)[0];
   index: number;
-  onSelect: (v: VideoEntry) => void;
+  onSelect: (v: (typeof VIDEOS)[0]) => void;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isHovering, setIsHovering] = useState(false);
@@ -97,17 +103,7 @@ function VideoCard({
 }
 
 export default function PhotoGallery() {
-  const [videos, setVideos] = useState<VideoEntry[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [selected, setSelected] = useState<VideoEntry | null>(null);
-
-  useEffect(() => {
-    fetch("/api/videos")
-      .then((r) => r.json())
-      .then((data) => setVideos(data.videos || []))
-      .catch(() => setVideos([]))
-      .finally(() => setLoading(false));
-  }, []);
+  const [selected, setSelected] = useState<(typeof VIDEOS)[0] | null>(null);
 
   useEffect(() => {
     if (selected) {
@@ -148,46 +144,34 @@ export default function PhotoGallery() {
           </a>
         </motion.div>
 
-        {loading ? (
-          <div className="flex items-center justify-center py-20">
-            <Loader2 className="w-8 h-8 text-zinc-500 animate-spin" />
-          </div>
-        ) : videos.length === 0 ? (
-          <div className="text-center py-20 text-zinc-500">
-            <p>No hay videos todavía.</p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-            {videos.map((video, i) => (
-              <VideoCard
-                key={video.file}
-                video={video}
-                index={i}
-                onSelect={setSelected}
-              />
-            ))}
-          </div>
-        )}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          {VIDEOS.map((video, i) => (
+            <VideoCard
+              key={video.id}
+              video={video}
+              index={i}
+              onSelect={setSelected}
+            />
+          ))}
+        </div>
 
-        {!loading && videos.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-            className="text-center mt-8"
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="text-center mt-8"
+        >
+          <a
+            href="https://www.instagram.com/rial_markho"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-medium hover:opacity-90 transition-opacity text-sm"
           >
-            <a
-              href="https://www.instagram.com/rial_markho"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-medium hover:opacity-90 transition-opacity text-sm"
-            >
-              <Globe className="w-4 h-4" />
-              Seguir en Instagram
-            </a>
-          </motion.div>
-        )}
+            <Globe className="w-4 h-4" />
+            Seguir en Instagram
+          </a>
+        </motion.div>
       </div>
 
       {/* Lightbox */}
