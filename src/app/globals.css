@@ -176,3 +176,30 @@ html {
 .animate-delay-1000 { animation-delay: 1000ms; }
 .animate-delay-1200 { animation-delay: 1200ms; }
 
+/* Vinyl disc slow spin */
+@keyframes vinyl-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-vinyl-spin {
+  animation: vinyl-spin 20s linear infinite;
+}
+
+/* Scanning light beam */
+@keyframes scanline {
+  0% { top: -2px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.hero-scanline {
+  animation: scanline 8s ease-in-out infinite;
+}
+
+/* Equalizer bars */
+@keyframes eq-bar {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1); }
+}
