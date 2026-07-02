@@ -5,18 +5,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Globe, ExternalLink, Play, X, Pause } from "lucide-react";
 
 const VIDEOS = [
-  { id: 1, file: "¿Os mola o no✨ #emergente #reggaeton.mp4", alt: "¿Os mola o no?" },
-  { id: 2, file: "Entre sombras y luces 2310. Mi nueva era.mp4", alt: "Entre sombras y luces" },
-  { id: 3, file: "Entre sombras y luces by Markho ya disponible en todas las plataformas #emergente #casialgo🥲💔 #reggaeton.mp4", alt: "Entre sombras y luces - Disponible" },
-  { id: 4, file: "Un preview... Feliz año 🥂🥂.mp4", alt: "Preview - Feliz año" },
-  { id: 5, file: "Estad atentos en marzo #emergente #reggaeton #artistaemergente.mp4", alt: "Estad atentos en marzo" },
-  { id: 6, file: "Espero que os mole!! #emergente #reggaeton #artistaemergente.mp4", alt: "Espero que os mole" },
-  { id: 7, file: "🔒Os mola o que🔒#emergente #reggaeton #artistaemergente #bloqueado #ex.mp4", alt: "¿Os mola o qué?" },
-  { id: 8, file: "¿os mola o no Como si nada by markho ya disponible en todas partes #fyp #emergente #reggaeton #artistaemergente.mp4", alt: "Como si nada - Disponible" },
+  { id: 1, file: "video-01.mp4", alt: "¿Os mola o no?" },
+  { id: 2, file: "video-02.mp4", alt: "Entre sombras y luces" },
+  { id: 3, file: "video-03.mp4", alt: "Entre sombras y luces - Disponible" },
+  { id: 4, file: "video-04.mp4", alt: "Preview - Feliz año" },
+  { id: 5, file: "video-05.mp4", alt: "Estad atentos en marzo" },
+  { id: 6, file: "video-06.mp4", alt: "Espero que os mole" },
+  { id: 7, file: "video-07.mp4", alt: "¿Os mola o qué?" },
+  { id: 8, file: "video-08.mp4", alt: "Como si nada - Disponible" },
 ];
 
-function encodeVideoPath(file: string) {
-  return encodeURI(`/` + file);
+function videoPath(file: string) {
+  return `/${file}`;
 }
 
 function VideoCard({ video, index, onSelect }: { video: typeof VIDEOS[0]; index: number; onSelect: (v: typeof VIDEOS[0]) => void }) {
@@ -49,7 +49,7 @@ function VideoCard({ video, index, onSelect }: { video: typeof VIDEOS[0]; index:
     >
       <video
         ref={videoRef}
-        src={encodeVideoPath(video.file)}
+        src={videoPath(video.file)}
         className="absolute inset-0 w-full h-full object-cover"
         muted
         loop
@@ -164,7 +164,7 @@ export default function PhotoGallery() {
               </button>
               <video
                 key={selected.id}
-                src={encodeVideoPath(selected.file)}
+                src={videoPath(selected.file)}
                 className="w-full rounded-xl"
                 controls
                 autoPlay
