@@ -7,7 +7,7 @@ export async function GET(request: Request) {
 
   try {
     const videos = await getLatestVideos(maxResults);
-    return NextResponse.json(videos);
+    return NextResponse.json({ videos });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json({ error: message }, { status: 500 });
