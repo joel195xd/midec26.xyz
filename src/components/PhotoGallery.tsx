@@ -144,14 +144,15 @@ export default function PhotoGallery() {
           </a>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+        <div className="columns-2 md:columns-3 gap-3 md:gap-4 space-y-3 md:space-y-4">
           {VIDEOS.map((video, i) => (
-            <VideoCard
-              key={video.id}
-              video={video}
-              index={i}
-              onSelect={setSelected}
-            />
+            <div key={video.id} className="break-inside-avoid">
+              <VideoCard
+                video={video}
+                index={i}
+                onSelect={setSelected}
+              />
+            </div>
           ))}
         </div>
 
@@ -166,7 +167,7 @@ export default function PhotoGallery() {
             href="https://www.instagram.com/rial_markho"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-medium hover:opacity-90 transition-opacity text-sm"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-purple-600 text-white rounded-full font-bold uppercase tracking-wider text-xs hover:scale-105 transition-transform shadow-[0_0_20px_rgba(220,38,38,0.3)]"
           >
             <Globe className="w-4 h-4" />
             Seguir en Instagram
@@ -174,45 +175,40 @@ export default function PhotoGallery() {
         </motion.div>
       </div>
 
-      {/* Lightbox */}
+      {/* Premium Glassmorphic Lightbox */}
       {selected && (
         <div
-          className="fixed inset-0 flex items-center justify-center p-4"
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: 9999,
-            backgroundColor: "rgba(0,0,0,0.95)",
-          }}
+          className="fixed inset-0 flex items-center justify-center p-4 z-[9999] bg-background/80 backdrop-blur-xl transition-all duration-300"
           onClick={() => setSelected(null)}
         >
           <div
-            className="relative w-full max-w-lg flex flex-col items-center"
-            style={{ maxHeight: "85vh" }}
+            className="relative w-full max-w-sm sm:max-w-md flex flex-col items-center bg-white/[0.02] border border-white/[0.05] p-2 rounded-2xl shadow-2xl"
+            style={{ maxHeight: "90vh" }}
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelected(null)}
-              className="absolute -top-12 right-0 text-white hover:text-white/80 transition-colors"
-              style={{ zIndex: 10000 }}
+              className="absolute -top-4 -right-4 w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center hover:bg-red-500 hover:scale-110 transition-all shadow-lg z-[10000]"
             >
-              <X className="w-8 h-8" />
+              <X className="w-5 h-5" />
             </button>
-            <video
-              key={selected.file}
-              src={videoPath(selected.file)}
-              className="w-full rounded-xl"
-              style={{ maxHeight: "80vh", objectFit: "contain" }}
-              controls
-              autoPlay
-              playsInline
-            />
-            <p className="text-white text-sm mt-3 text-center">
-              {selected.alt}
-            </p>
+            <div className="w-full rounded-xl overflow-hidden bg-black relative">
+              <video
+                key={selected.file}
+                src={videoPath(selected.file)}
+                className="w-full object-cover"
+                style={{ maxHeight: "75vh" }}
+                controls
+                autoPlay
+                playsInline
+              />
+            </div>
+            <div className="w-full pt-4 pb-2 px-2 text-center">
+              <p className="text-white text-sm font-semibold tracking-wide">
+                {selected.alt}
+              </p>
+              <p className="text-xs text-zinc-500 mt-1 uppercase tracking-widest">Markho Shorts</p>
+            </div>
           </div>
         </div>
       )}
