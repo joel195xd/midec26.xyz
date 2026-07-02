@@ -15,7 +15,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: SITE.title,
   description: SITE.description,
-  keywords: ["Midec26", "música", "artista", "cantante", "hip-hop", "urbano"],
+  keywords: ["Markho", "música", "artista", "cantante", "hip-hop", "urbano"],
   openGraph: {
     title: SITE.title,
     description: SITE.description,

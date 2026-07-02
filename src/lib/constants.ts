@@ -1,7 +1,7 @@
 export const SITE = {
-  name: "Midec26",
-  title: "Midec26 — Artista & Cantante",
-  description: "Página oficial de Midec26. Escucha su música, conoce su historia y consigue su merch exclusivo.",
+  name: "Markho",
+  title: "Markho — Artista & Cantante",
+  description: "Página oficial de Markho. Escucha su música, conoce su historia y consigue su merch exclusivo.",
   url: "https://midec26.xyz",
 } as const;
 
@@ -45,7 +45,7 @@ export const TRACKS = [
 
 export const MERCH_ITEMS = [
   {
-    name: "Playera Midec26",
+    name: "Playera Markho",
     price: "$399 MXN",
     image: "/playera.png",
   },

@@ -8,18 +8,18 @@ export default function About() {
         {/* Bio */}
         <div>
           <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-foreground mb-4">
-            Sobre Midec26
+            Sobre Markho
           </h2>
           <div className="w-16 h-1 bg-accent rounded-full mb-8" />
 
           <div className="space-y-4 text-text-secondary leading-relaxed">
             <p>
-              Midec26 es un artista y cantante que está dejando su huilla en la
+              Markho es un artista y cantante que está dejando su huilla en la
               escena musical. Con un estilo único que fusiona lo urbano con lo
               alternativo, cada track es una experiencia diferente.
             </p>
             <p>
-              Este es solo el comienzo. Sigue Midec26 en todas sus plataformas
+              Este es solo el comienzo. Sigue Markho en todas sus plataformas
               para no perderte nada.
             </p>
           </div>

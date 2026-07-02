@@ -6,8 +6,8 @@ import { TRACKS, SOCIALS } from "@/lib/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Música — Midec26",
-  description: "Escucha la música de Midec26 en Spotify, YouTube y más plataformas.",
+  title: "Música — Markho",
+  description: "Escucha la música de Markho en Spotify, YouTube y más plataformas.",
 };
 
 export default function MusicaPage() {

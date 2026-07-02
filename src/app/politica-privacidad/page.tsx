@@ -2,7 +2,7 @@ import Section from "@/components/Section";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidad — Midec26",
+  title: "Política de Privacidad — Markho",
   description:
     "Política de privacidad del sitio midec26.xyz. Información sobre recopilación de datos, cookies y servicios de terceros.",
 };

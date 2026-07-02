@@ -176,7 +176,7 @@ export default function SobrePage() {
                     el lanzamiento de su primer track oficial{" "}
                     <strong className="text-foreground">&quot;Magia&quot;</strong>{" "}
                     bajo la firma de{" "}
-                    <strong className="text-foreground">Midec26</strong>.
+                    <strong className="text-foreground">Markho</strong>.
                   </p>
                   <p>
                     Bajo esa firma inicial lanzó varios singles y álbumes para

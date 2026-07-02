@@ -5,7 +5,7 @@ import { Quote, Star } from "lucide-react";
 
 const TESTIMONIALS = [
   {
-    text: "Midec26 es uno de los artistas emergentes más prometedores del año. Su sonido urbano latino rompe esquemas.",
+    text: "Markho es uno de los artistas emergentes más prometedores del año. Su sonido urbano latino rompe esquemas.",
     author: "Revista Musical",
     role: "Crítica de música",
     stars: 5,

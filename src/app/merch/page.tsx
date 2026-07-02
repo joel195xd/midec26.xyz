@@ -6,8 +6,8 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Merch — Midec26",
-  description: "Merch exclusivo de Midec26. Playeras, gorras, posters y más.",
+  title: "Merch — Markho",
+  description: "Merch exclusivo de Markho. Playeras, gorras, posters y más.",
 };
 
 export default function MerchPage() {
