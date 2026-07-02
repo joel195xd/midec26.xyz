@@ -1,9 +1,8 @@
-import Image from "next/image";
 import Section from "@/components/Section";
 import AdBanner from "@/components/AdBanner";
 import ScrollReveal from "@/components/ScrollReveal";
+import VideoGrid from "@/components/VideoGrid";
 import { TRACKS, SOCIALS } from "@/lib/constants";
-import { getLatestVideos } from "@/lib/youtube";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,14 +10,7 @@ export const metadata: Metadata = {
   description: "Escucha la música de Midec26 en Spotify, YouTube y más plataformas.",
 };
 
-export default async function MusicaPage() {
-  let videos: Awaited<ReturnType<typeof getLatestVideos>> = [];
-  try {
-    videos = await getLatestVideos(6);
-  } catch {
-    // YouTube API not configured or failed — render without videos
-  }
-
+export default function MusicaPage() {
   return (
     <main className="pt-24 pb-20">
       <Section id="musica">
@@ -103,54 +95,9 @@ export default async function MusicaPage() {
           </div>
         </ScrollReveal>
 
-        {/* YouTube Videos */}
+        {/* YouTube Videos — client-side with skeleton loaders */}
         <ScrollReveal delay={0.3}>
-          <div>
-            <h2 className="text-2xl font-bold text-foreground mb-6">Videos</h2>
-            {videos.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {videos.map((video) => (
-                  <a
-                    key={video.id}
-                    href={`https://www.youtube.com/watch?v=${video.id}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block"
-                  >
-                    <div className="aspect-video bg-surface rounded-2xl border border-white/5 overflow-hidden mb-3 relative">
-                      <Image
-                        src={video.thumbnail}
-                        alt={video.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                        <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-75 group-hover:scale-100">
-                          <svg viewBox="0 0 24 24" fill="white" className="w-6 h-6 ml-0.5">
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <h3 className="text-sm font-semibold text-foreground line-clamp-2 group-hover:text-accent transition-colors">
-                      {video.title}
-                    </h3>
-                    <p className="text-xs text-text-secondary mt-1">
-                      {new Date(video.publishedAt).toLocaleDateString("es-MX", {
-                        year: "numeric",
-                        month: "short",
-                      })}
-                    </p>
-                  </a>
-                ))}
-              </div>
-            ) : (
-              <div className="aspect-video bg-surface rounded-2xl border border-white/5 flex items-center justify-center">
-                <p className="text-text-secondary">Próximamente — embed de YouTube</p>
-              </div>
-            )}
-          </div>
+          <VideoGrid />
         </ScrollReveal>
       </Section>
     </main>
