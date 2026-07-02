@@ -17,7 +17,6 @@ export const NAV_LINKS = [
   { label: "Música", href: "/musica", icon: "music" },
   { label: "Merch", href: "/merch", icon: "shoppingBag" },
   { label: "Sobre Markho", href: "/sobre", icon: "user" },
-  { label: "MarkKart", href: "/juego", icon: "gamepad2" },
 ] as const;
 
 export const TRACKS = [
