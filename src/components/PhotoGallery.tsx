@@ -1,25 +1,27 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Globe, ExternalLink, Play, X, Pause } from "lucide-react";
+import { Globe, ExternalLink, Play, X, Pause, Loader2 } from "lucide-react";
 
-const VIDEOS = [
-  { id: 1, file: "video-01.mp4", alt: "¿Os mola o no?" },
-  { id: 2, file: "video-02.mp4", alt: "Entre sombras y luces" },
-  { id: 3, file: "video-03.mp4", alt: "Entre sombras y luces - Disponible" },
-  { id: 4, file: "video-04.mp4", alt: "Preview - Feliz año" },
-  { id: 5, file: "video-05.mp4", alt: "Estad atentos en marzo" },
-  { id: 6, file: "video-06.mp4", alt: "Espero que os mole" },
-  { id: 7, file: "video-07.mp4", alt: "¿Os mola o qué?" },
-  { id: 8, file: "video-08.mp4", alt: "Como si nada - Disponible" },
-];
+interface VideoEntry {
+  file: string;
+  alt: string;
+}
 
 function videoPath(file: string) {
   return `/${file}`;
 }
 
-function VideoCard({ video, index, onSelect }: { video: typeof VIDEOS[0]; index: number; onSelect: (v: typeof VIDEOS[0]) => void }) {
+function VideoCard({
+  video,
+  index,
+  onSelect,
+}: {
+  video: VideoEntry;
+  index: number;
+  onSelect: (v: VideoEntry) => void;
+}) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isHovering, setIsHovering] = useState(false);
 
@@ -36,16 +38,27 @@ function VideoCard({ video, index, onSelect }: { video: typeof VIDEOS[0]; index:
     }
   };
 
+  const handleTouch = (e: React.TouchEvent) => {
+    e.stopPropagation();
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play().catch(() => {});
+      setIsHovering(true);
+    } else {
+      v.pause();
+      setIsHovering(false);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+      transition={{ duration: 0.4, delay: Math.min(index * 0.08, 0.6) }}
       onClick={() => onSelect(video)}
-      className={`relative aspect-[9/16] rounded-xl overflow-hidden group cursor-pointer bg-zinc-900 ${
-        index === 0 ? "md:col-span-2 md:row-span-2" : ""
-      }`}
+      className="relative aspect-[9/16] rounded-xl overflow-hidden group cursor-pointer bg-zinc-900"
     >
       <video
         ref={videoRef}
@@ -57,18 +70,15 @@ function VideoCard({ video, index, onSelect }: { video: typeof VIDEOS[0]; index:
         playsInline
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onTouchStart={(e) => {
-          e.stopPropagation();
-          if (videoRef.current?.paused) {
-            videoRef.current.play().catch(() => {});
-          } else {
-            videoRef.current?.pause();
-          }
-        }}
+        onTouchStart={handleTouch}
       />
       {/* Play overlay */}
       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center pointer-events-none">
-        <div className={`w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-opacity ${isHovering ? "opacity-0" : "opacity-100 group-hover:opacity-100"}`}>
+        <div
+          className={`w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-opacity ${
+            isHovering ? "opacity-0" : "opacity-100 group-hover:opacity-100"
+          }`}
+        >
           {isHovering ? (
             <Pause className="w-5 h-5 text-white" fill="white" />
           ) : (
@@ -78,16 +88,27 @@ function VideoCard({ video, index, onSelect }: { video: typeof VIDEOS[0]; index:
       </div>
       {/* Label */}
       <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-        <p className="text-white text-xs font-medium line-clamp-2">{video.alt}</p>
+        <p className="text-white text-xs font-medium line-clamp-2">
+          {video.alt}
+        </p>
       </div>
     </motion.div>
   );
 }
 
 export default function PhotoGallery() {
-  const [selected, setSelected] = useState<typeof VIDEOS[0] | null>(null);
+  const [videos, setVideos] = useState<VideoEntry[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selected, setSelected] = useState<VideoEntry | null>(null);
 
-  // Lock body scroll when lightbox is open
+  useEffect(() => {
+    fetch("/api/videos")
+      .then((r) => r.json())
+      .then((data) => setVideos(data.videos || []))
+      .catch(() => setVideos([]))
+      .finally(() => setLoading(false));
+  }, []);
+
   useEffect(() => {
     if (selected) {
       document.body.style.overflow = "hidden";
@@ -127,29 +148,46 @@ export default function PhotoGallery() {
           </a>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-          {VIDEOS.map((video, i) => (
-            <VideoCard key={video.id} video={video} index={i} onSelect={setSelected} />
-          ))}
-        </div>
+        {loading ? (
+          <div className="flex items-center justify-center py-20">
+            <Loader2 className="w-8 h-8 text-zinc-500 animate-spin" />
+          </div>
+        ) : videos.length === 0 ? (
+          <div className="text-center py-20 text-zinc-500">
+            <p>No hay videos todavía.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {videos.map((video, i) => (
+              <VideoCard
+                key={video.file}
+                video={video}
+                index={i}
+                onSelect={setSelected}
+              />
+            ))}
+          </div>
+        )}
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="text-center mt-8"
-        >
-          <a
-            href="https://www.instagram.com/rial_markho"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-medium hover:opacity-90 transition-opacity text-sm"
+        {!loading && videos.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="text-center mt-8"
           >
-            <Globe className="w-4 h-4" />
-            Seguir en Instagram
-          </a>
-        </motion.div>
+            <a
+              href="https://www.instagram.com/rial_markho"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-medium hover:opacity-90 transition-opacity text-sm"
+            >
+              <Globe className="w-4 h-4" />
+              Seguir en Instagram
+            </a>
+          </motion.div>
+        )}
       </div>
 
       {/* Lightbox */}
@@ -177,14 +215,16 @@ export default function PhotoGallery() {
                 <X className="w-8 h-8" />
               </button>
               <video
-                key={selected.id}
+                key={selected.file}
                 src={videoPath(selected.file)}
                 className="w-full max-h-[80vh] object-contain rounded-xl"
                 controls
                 autoPlay
                 playsInline
               />
-              <p className="text-white text-sm mt-3 text-center">{selected.alt}</p>
+              <p className="text-white text-sm mt-3 text-center">
+                {selected.alt}
+              </p>
             </motion.div>
           </motion.div>
         )}
