@@ -6,24 +6,6 @@ import Image from "next/image";
 import { SOCIALS } from "@/lib/constants";
 import Particles from "./Particles";
 
-// Animated equalizer bars component
-function EqualizerBars() {
-  return (
-    <div className="flex items-end gap-[3px] h-4">
-      {[0.6, 1, 0.4, 0.8, 0.5].map((h, i) => (
-        <div
-          key={i}
-          className="w-[3px] bg-red-500 rounded-full origin-bottom"
-          style={{
-            animation: `eq-bar ${0.5 + i * 0.15}s ease-in-out infinite alternate`,
-            height: `${h * 100}%`,
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -257,46 +239,6 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* ── Glassmorphic Card: Now Playing ── */}
-              <div
-                className="hero-glass-float absolute -left-16 sm:-left-20 top-[15%] bg-white/[0.03] backdrop-blur-2xl border border-white/[0.07] rounded-2xl px-5 py-3.5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] hidden sm:flex items-center gap-3"
-                style={{ transform: `translateZ(40px)` }}
-              >
-                <div className="w-9 h-9 rounded-xl bg-red-500/15 flex items-center justify-center shrink-0">
-                  <EqualizerBars />
-                </div>
-                <div>
-                  <p className="text-[10px] text-zinc-500 font-medium tracking-wider uppercase">Sonando ahora</p>
-                  <p className="text-sm text-foreground font-bold">Nuevo single 🔥</p>
-                </div>
-              </div>
-
-              {/* ── Glassmorphic Card: Era Badge ── */}
-              <div
-                className="hero-glass-float-delayed absolute -right-10 sm:-right-16 bottom-[22%] bg-white/[0.03] backdrop-blur-2xl border border-white/[0.07] rounded-2xl px-5 py-3.5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] hidden sm:flex items-center gap-3"
-                style={{ transform: `translateZ(30px)` }}
-              >
-                <div className="w-9 h-9 rounded-xl bg-cyan-500/15 flex items-center justify-center shrink-0">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M9 18V5l12-2v13" />
-                    <circle cx="6" cy="18" r="3" />
-                    <circle cx="18" cy="16" r="3" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-[10px] text-zinc-500 font-medium tracking-wider uppercase">Nueva era</p>
-                  <p className="text-sm text-foreground font-bold">MARKHO 2025</p>
-                </div>
-              </div>
-
-              {/* ── Glassmorphic Card: Location ── */}
-              <div
-                className="hero-glass-float absolute -left-4 sm:-left-8 bottom-[8%] bg-white/[0.03] backdrop-blur-2xl border border-white/[0.07] rounded-2xl px-4 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] hidden sm:flex items-center gap-2"
-                style={{ animationDelay: "2.5s", transform: `translateZ(20px)` }}
-              >
-                <span className="text-lg">📍</span>
-                <span className="text-[11px] text-zinc-400 font-medium">Santpedor, Cataluña</span>
-              </div>
             </div>
           </div>
 

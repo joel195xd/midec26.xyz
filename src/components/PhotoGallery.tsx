@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Globe, ExternalLink, Play, X, Pause } from "lucide-react";
 
 const VIDEOS = [
@@ -175,44 +175,47 @@ export default function PhotoGallery() {
       </div>
 
       {/* Lightbox */}
-      <AnimatePresence>
-        {selected && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4"
-            style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }}
-            onClick={() => setSelected(null)}
+      {selected && (
+        <div
+          className="fixed inset-0 flex items-center justify-center p-4"
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 9999,
+            backgroundColor: "rgba(0,0,0,0.95)",
+          }}
+          onClick={() => setSelected(null)}
+        >
+          <div
+            className="relative w-full max-w-lg flex flex-col items-center"
+            style={{ maxHeight: "85vh" }}
+            onClick={(e) => e.stopPropagation()}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-lg w-full max-h-[85vh] flex flex-col items-center"
-              onClick={(e) => e.stopPropagation()}
+            <button
+              onClick={() => setSelected(null)}
+              className="absolute -top-12 right-0 text-white hover:text-white/80 transition-colors"
+              style={{ zIndex: 10000 }}
             >
-              <button
-                onClick={() => setSelected(null)}
-                className="absolute -top-12 right-0 text-white/60 hover:text-white transition-colors z-10"
-              >
-                <X className="w-8 h-8" />
-              </button>
-              <video
-                key={selected.file}
-                src={videoPath(selected.file)}
-                className="w-full max-h-[80vh] object-contain rounded-xl"
-                controls
-                autoPlay
-                playsInline
-              />
-              <p className="text-white text-sm mt-3 text-center">
-                {selected.alt}
-              </p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              <X className="w-8 h-8" />
+            </button>
+            <video
+              key={selected.file}
+              src={videoPath(selected.file)}
+              className="w-full rounded-xl"
+              style={{ maxHeight: "80vh", objectFit: "contain" }}
+              controls
+              autoPlay
+              playsInline
+            />
+            <p className="text-white text-sm mt-3 text-center">
+              {selected.alt}
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
