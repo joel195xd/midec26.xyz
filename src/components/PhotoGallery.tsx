@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Globe, ExternalLink, Play, X, Pause } from "lucide-react";
 
@@ -57,7 +57,8 @@ function VideoCard({ video, index, onSelect }: { video: typeof VIDEOS[0]; index:
         playsInline
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onTouchStart={() => {
+        onTouchStart={(e) => {
+          e.stopPropagation();
           if (videoRef.current?.paused) {
             videoRef.current.play().catch(() => {});
           } else {
@@ -85,6 +86,18 @@ function VideoCard({ video, index, onSelect }: { video: typeof VIDEOS[0]; index:
 
 export default function PhotoGallery() {
   const [selected, setSelected] = useState<typeof VIDEOS[0] | null>(null);
+
+  // Lock body scroll when lightbox is open
+  useEffect(() => {
+    if (selected) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selected]);
 
   return (
     <section className="py-20 px-4">
@@ -146,26 +159,27 @@ export default function PhotoGallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4"
+            style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }}
             onClick={() => setSelected(null)}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-lg w-full"
+              className="relative max-w-lg w-full max-h-[85vh] flex flex-col items-center"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelected(null)}
-                className="absolute -top-12 right-0 text-white/60 hover:text-white transition-colors"
+                className="absolute -top-12 right-0 text-white/60 hover:text-white transition-colors z-10"
               >
                 <X className="w-8 h-8" />
               </button>
               <video
                 key={selected.id}
                 src={videoPath(selected.file)}
-                className="w-full rounded-xl"
+                className="w-full max-h-[80vh] object-contain rounded-xl"
                 controls
                 autoPlay
                 playsInline
